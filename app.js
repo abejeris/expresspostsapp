@@ -48,7 +48,7 @@ app.put("/posts/:id", (req, res) => {
 	const postIndex = posts.findIndex((post) => post.id === postId);
 
 	if (postIndex !== -1) {
-		posts[postIndex] = { id: title, postId, body };
+		posts[postIndex] = { id: postId, title, body };
 		res.send(`post was replaced successfully.`);
 	} else {
 		res.status(404).send(`Post not found`);
