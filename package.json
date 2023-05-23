@@ -1,0 +1,16 @@
+{
+	"name": "uzduotis",
+	"version": "1.0.0",
+	"description": "as",
+	"main": "app.js",
+	"scripts": {
+		"dev": "nodemon app.js",
+		"start": "node app.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.18.2",
+		"nodemon": "^2.0.22"
+	}
+}
