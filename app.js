@@ -25,18 +25,15 @@ const posts = [
 ];
 
 app.get("/posts", (req, res) => {
-	res.send(posts);
+	const { title } = req.query;
+	const postByTitle = posts.filter((post) => post.title.includes(title));
+	if (title) {
+		res.send(postByTitle);
+	} else res.send(posts);
 });
 
 app.get("/posts/:id", (req, res) => {
 	res.send(posts.find((post) => post.id === parseInt(req.params.id)));
-});
-
-app.get("/posts", (req, res) => {
-	// kaip pakeist kad veiktu ir siaip be query vertes?
-	const { title } = req.query;
-	const postByTitle = posts.filter((post) => post.title.includes(title));
-	res.send(postByTitle);
 });
 
 app.post("/posts", (req, res) => {
