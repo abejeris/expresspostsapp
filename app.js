@@ -33,7 +33,14 @@ app.get("/posts", (req, res) => {
 });
 
 app.get("/posts/:id", (req, res) => {
-	res.send(posts.find((post) => post.id === parseInt(req.params.id)));
+	const postId = parseInt(req.params.id);
+	const postIndex = posts.findIndex((post) => post.id === postId);
+
+	if (postIndex !== -1) {
+		res.send(posts.find((post) => post.id === parseInt(req.params.id)));
+	} else {
+		res.status(404).send(`such index ${postId} was not found`);
+	}
 });
 
 app.post("/posts", (req, res) => {
